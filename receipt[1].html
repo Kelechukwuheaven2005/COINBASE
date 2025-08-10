@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receipt</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f6fa;
+    }
+    header {
+        background-color: #0052ff;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 20px;
+    }
+    .receipt {
+        max-width: 400px;
+        margin: 30px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .status {
+        color: orange;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .amount {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .field {
+        margin-top: 15px;
+        font-size: 14px;
+        text-align: left;
+    }
+    .label {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<header>Custom Receipt</header>
+
+<div class="receipt">
+    <div class="status">Pending</div>
+    <div>You're sending</div>
+    <div class="amount" id="showAmount"></div>
+
+    <div class="field">
+        <span class="label">Recipient Wallet Address:</span>
+        <div id="showAddress"></div>
+    </div>
+
+    <div class="field">
+        <span class="label">Date:</span>
+        <div id="showDate"></div>
+    </div>
+
+    <div class="field">
+        <span class="label">Reference Number:</span>
+        <div id="showReference"></div>
+    </div>
+</div>
+
+<script>
+document.getElementById("showAmount").textContent = "$" + localStorage.getItem("amount");
+document.getElementById("showDate").textContent = localStorage.getItem("date");
+document.getElementById("showAddress").textContent = localStorage.getItem("address");
+document.getElementById("showReference").textContent = localStorage.getItem("reference");
+</script>
+
+</body>
+</html>
